@@ -65,12 +65,23 @@
                                     <rect key="frame" x="199" y="36" width="202" height="50"/>
                                 </variation>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="idle1" translatesAutoresizingMaskIntoConstraints="NO" id="Eas-Av-u3I">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="idle1" translatesAutoresizingMaskIntoConstraints="NO" id="Eas-Av-u3I" customClass="MonsterImg" customModule="myLittleMonster" customModuleProvider="target">
                                 <rect key="frame" x="-3" y="236" width="600" height="311"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="311" id="HGs-so-6OL"/>
                                     <constraint firstAttribute="width" constant="600" id="jqB-Is-nZ8"/>
                                     <constraint firstAttribute="height" constant="311" id="kaX-dz-CIM"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HGs-so-6OL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="HGs-so-6OL"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cw9-2U-eiz">
                                 <rect key="frame" x="148" y="125" width="240" height="98"/>
@@ -102,6 +113,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eas-Av-u3I" secondAttribute="trailing" constant="40" id="3jt-8G-Gf5"/>
                             <constraint firstAttribute="trailing" secondItem="cw9-2U-eiz" secondAttribute="trailing" constant="400" id="76T-4S-Kmn"/>
                             <constraint firstItem="rxL-XT-xwy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Brf-8S-4qE"/>
                             <constraint firstItem="Eas-Av-u3I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-80" id="DMq-wu-bJz"/>
@@ -131,6 +143,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="3jt-8G-Gf5"/>
+                                <exclude reference="peS-Oj-sLq"/>
                                 <exclude reference="76T-4S-Kmn"/>
                                 <exclude reference="EQl-1R-281"/>
                                 <exclude reference="NIN-bY-HCj"/>
@@ -138,11 +152,11 @@
                                 <exclude reference="YBM-4P-8Wl"/>
                                 <exclude reference="foc-GR-NGT"/>
                                 <exclude reference="qgp-Lx-Yki"/>
-                                <exclude reference="peS-Oj-sLq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="3jt-8G-Gf5"/>
                                 <include reference="76T-4S-Kmn"/>
                                 <include reference="EQl-1R-281"/>
                                 <exclude reference="NIN-bY-HCj"/>
@@ -154,13 +168,18 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="Xrg-wR-R07"/>
                                 <include reference="peS-Oj-sLq"/>
+                                <include reference="Xrg-wR-R07"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="foodImg" destination="1l5-MJ-cqm" id="lG7-sv-Ccu"/>
+                        <outlet property="heartImg" destination="wBL-hC-mcz" id="vej-XH-dYi"/>
                         <outlet property="monsterImg" destination="Eas-Av-u3I" id="P6a-xy-R20"/>
+                        <outlet property="penalty1Img" destination="2uf-ZB-6P8" id="obs-Vp-t8L"/>
+                        <outlet property="penalty2Img" destination="NYn-AH-fW5" id="E0l-Hw-tNe"/>
+                        <outlet property="penalty3Img" destination="VEM-f4-gEj" id="cEe-w7-edU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
