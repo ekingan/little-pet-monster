@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-    
+        
+    //Animate image
         var imgArr = [UIImage]()
-    
+    //Loop for running though 4 images to animate
         for var x = 1; x <= 4; x++ {
             let img = UIImage(named: "idle\(x).png")
             imgArr.append(img!)
