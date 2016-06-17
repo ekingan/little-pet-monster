@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var penalty3Img: UIImageView!
     
+    @IBOutlet weak var restartBtn: UIButton!
+    
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
     let MAX_PENALTIES = 3
@@ -48,9 +50,7 @@ class ViewController: UIViewController {
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
         
-        penalty1Img.alpha = DIM_ALPHA
-        penalty2Img.alpha = DIM_ALPHA
-        penalty3Img.alpha = DIM_ALPHA
+        resetPenalties()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDroppedOnCharacter:", name: "onTargetDropped", object: nil)
         
@@ -165,6 +165,30 @@ class ViewController: UIViewController {
         monsterImg.playDeathAnimations()
         
         sfxDeath.play()
+        
+        restartBtn.hidden = false
+    }
+    
+    @IBAction func onResetGameTapped(sender: AnyObject) {
+        restartGame()
+    }
+    
+    func restartGame() {
+        resetPenalties()
+        monsterHappy = true
+        startTimer()
+        penalties = 0
+        monsterImg.playIdleAnimation()
+        restartBtn.hidden = true
+
+        
+    }
+    
+    
+    func resetPenalties() {
+        penalty1Img.alpha = DIM_ALPHA
+        penalty2Img.alpha = DIM_ALPHA
+        penalty3Img.alpha = DIM_ALPHA
     }
 
 }
